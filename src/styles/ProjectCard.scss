@@ -1,0 +1,75 @@
+@import "../ColorScheme.scss";
+.Card {
+  a {
+    text-decoration: none;
+    color: $nameText;
+    max-width: 400px;
+    max-height: 400px;
+    .Project-Image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        object-fit: cover;
+        height: 360px;
+        width: 360px;
+      }
+    }
+    .Project-Title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        font-style: italic;
+        margin: 1rem 0 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        max-width: 360px;
+      }
+    }
+  }
+  &:hover {
+    a {
+      text-decoration: underline 0.1rem;
+      text-underline-offset: 0.2rem;
+    }
+  }
+}
+@media (min-width: 1366px) {
+  .Card {
+    padding: 2rem 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .Card {
+    a {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      max-width: 300px;
+      max-height: 300px;
+      .Project-Image {
+        img {
+          object-fit: cover;
+          height: 250px;
+        width: 250px;
+        }
+      }
+      .Project-Title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        h3 {
+          font-style: italic;
+          margin: 1rem 0 0;
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

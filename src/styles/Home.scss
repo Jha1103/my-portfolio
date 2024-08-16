@@ -1,0 +1,232 @@
+@import "../ColorScheme.scss";
+
+.Home {
+  background-color: $bgColorPrimary;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .Name-Section {
+    height: 100%;
+    flex: 0.5;
+    a {
+      color: $nameText;
+    }
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    .Name {
+      font-size: 10rem;
+      margin-right: 5rem;
+      text-transform: uppercase;
+    }
+  }
+  .Page-Section {
+    height: 100%;
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bgColorSecondary;
+    box-shadow: -7px 0 7px -5px $boxShadow;
+
+    .Link-Container {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      gap: 1rem;
+      flex: 0.5;
+
+      span {
+        font-size: 3rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        opacity: 0;
+        animation: fadeRight 1s ease forwards;
+        animation-delay: calc(0.2s * var(--index));
+
+        a {
+          position: relative;
+          text-transform: capitalize;
+          &::after {
+            content: "  →";
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+          }
+
+          &:hover::after {
+            opacity: 1;
+            width: 100%;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background-color: $black;
+            transition: width 0.5s ease;
+          }
+
+          &:hover::before {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (max-width: 1440px) {
+  .Home {
+    .Name-Section {
+      .Name {
+        font-size: 8rem;
+        margin-left: 4rem;
+      }
+    }
+    .Page-Section {
+      .Link-Container {
+        span {
+          font-size: 2.4rem;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1025px) {
+  .Home {
+    flex-direction: column;
+
+    .Name-Section {
+      flex: 0.5;
+      animation: fadeDown 1s ease forwards;
+      .Name {
+        font-size: 8rem;
+        margin-left: 4rem;
+      }
+    }
+    .Page-Section {
+      flex: 0.5;
+      width: 100%;
+      box-shadow: 0 -7px 7px -5px rgba(75, 53, 38, 0.2);
+      .Link-Container {
+        margin-bottom: 4rem;
+        span {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 300px) and (max-width: 767px) {
+  .Home {
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    .Name-Section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      .Name {
+        font-size: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5rem;
+        .Word {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .Letter {
+          display: inline-block;
+        }
+      }
+    }
+    .Page-Section {
+      width: 100%;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      display: flex;
+      flex-direction: column;
+      box-shadow: none;
+      background-color: none;
+      .Link-Container {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%;
+        height: 100%;
+        justify-content: space-around;
+        align-items: center;
+        span {
+          font-size: 1.5rem;
+          animation: fadeLeft 1s ease forwards;
+          animation-delay: calc(0.2s * var(--index));
+          a {
+            text-transform: uppercase;
+            font-weight: 700;
+            &::after,
+            &::before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
