@@ -6,7 +6,7 @@ import Resume from "./assets/icons/resume.png";
 import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
 
 export const constants = {
-  my_link: "https://anjaliroy.vercel.app",
+  my_link: "https://swapnil-jha.vercel.app",
   links: [
     { index: 1, href: "about" },
     { index: 2, href: "projects" },
@@ -14,8 +14,8 @@ export const constants = {
     { index: 4, href: "blog" },
   ],
   name: {
-    firstName: "anjali",
-    lastName: "roy",
+    firstName: "swapnil",
+    lastName: "jha",
   },
   contactArray: [
     {
